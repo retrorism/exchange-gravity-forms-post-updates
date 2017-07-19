@@ -1018,7 +1018,9 @@ class gform_update_post
 					$field['inputName'] = $field['postCustomFieldName'];
 
 					$value = $new_value;
-					add_filter( 'gform_field_value_' . $field['inputName'], function($value) use($value) { return $value; } );
+					add_filter( 'gform_field_value_' . $field['inputName'], function( $field_value ) use( $value ) { 
+						$field_value = $value;
+						return $field_value; } );
 				}
 				break;
 
